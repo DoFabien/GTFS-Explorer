@@ -1,0 +1,50 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+#map{
+    position: absolute;
+    left: 0;
+    right: 400px;
+    bottom: 0;
+    top:64px;
+}
+
+#top {
+  height: 64px;
+  width: 100%;
+/*  background-color: cornflowerblue;*/
+}
+#right {
+    position: absolute;
+    width: 400px;
+    top: 64px;
+    bottom: 0;
+    right: 0;
+}
+
+#trips{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.select_route{
+ width:50%;
+}
+
+.md-select-menu-container {
+ z-index: 2000;   
+}
+.md-select-label{
+    font-weight: bold;
+}
+
+.md-datepicker-input-container {
+       margin-top: 26px;
+    margin-right:5px;
+}
