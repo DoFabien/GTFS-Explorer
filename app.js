@@ -2,7 +2,7 @@ var app = angular.module('MainApp', ['ngMaterial']);
 
 app.controller('MainCtrl', function($scope,$window,Fctory){
 
-var exception_route_type = '0'; //sans les trams. Pour ajouter une exeption => '0,3'
+var exception_route_type = '-1'; //sans les trams => '0'. Pour ajouter une exeption => '0,3'
 var osrm_itinaire = true; // calculer l'itineraires et l'afficher
     
     var map = $window.L.map('map',{ loadingControl: true}).setView([ 45.17840,5.72 ], 12); //
@@ -76,10 +76,9 @@ var osrm_itinaire = true; // calculer l'itineraires et l'afficher
                 }
                 map.fitBounds(FG_stops.getBounds());
             });
-            if (osrm_itinaire){
+            if (osrm_itinaire && JSON.parse($scope.route_selected).route_type != 0){ // != tram!
             Fctory.getItiByTrip(trip.trip_id,function(data){
                 var  iti = new L.Polyline(L.PolylineUtil.decode(data, 6));
-
                 iti.setStyle({color:'#'+$scope.route_color,weight:5, opacity:1});
                 iti.addTo(FG_iti);
                 //on ajoute les fleches
