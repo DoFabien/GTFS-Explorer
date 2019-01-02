@@ -5,7 +5,7 @@ ini_set('display_startup_errors',1);
 
 
 
-$sql = "SELECT DISTINCT date FROM calendar_dates ORDER BY date"; // sans les trams
+$sql = "SELECT DISTINCT date FROM $schema.calendar_dates ORDER BY date"; // sans les trams
 
 $req = $db->prepare($sql);
 

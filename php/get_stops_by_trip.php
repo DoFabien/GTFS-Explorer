@@ -8,8 +8,8 @@ $trip_id= $_GET['trip_id'];
 
 
 $sql = "SELECT s.stop_id, s.stop_name, s.stop_lat as lat, s.stop_lon as lng, s.wheelchair_boarding, st.stop_sequence,st.arrival_time
-FROM stop_times st
-JOIN stops s ON s.stop_id = st.stop_id
+FROM $schema.stop_times st
+JOIN $schema.stops s ON s.stop_id = st.stop_id
 WHERE st.trip_id = :trip_id
 ORDER BY st.stop_sequence"; 
 

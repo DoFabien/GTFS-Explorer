@@ -9,9 +9,9 @@ $trip_id = '578126';
 
 
 $sql = "SELECT s.stop_id, s.stop_name, s.stop_lat, s.stop_lon, s.wheelchair_boarding, st.arrival_time, stop_sequence
-FROM stops s
-JOIN stop_times st ON st.stop_id = s.stop_id
-JOIN trips t ON t.trip_id = st.trip_id
+FROM $schema.stops s
+JOIN $schema.stop_times st ON st.stop_id = s.stop_id
+JOIN $schema.trips t ON t.trip_id = st.trip_id
 WHERE t.trip_id = :trip_id
 ORDER BY stop_sequence";
 

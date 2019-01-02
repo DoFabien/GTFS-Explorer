@@ -13,9 +13,9 @@ $date = $_GET['date'];
 
 
 $sql = "SELECT t.trip_id, MIN(st.departure_time) as depart, MAX(st.departure_time) as arrive, count(*) as nb_stop
-FROM stop_times st
-JOIN trips t ON t.trip_id = st.trip_id
-JOIN (SELECT * FROM calendar_dates WHERE date = :date) cal ON cal.service_id = t.service_id 
+FROM  $schema.stop_times st
+JOIN  $schema.trips t ON t.trip_id = st.trip_id
+JOIN (SELECT * FROM  $schema.calendar_dates WHERE date = :date) cal ON cal.service_id = t.service_id 
 WHERE t.route_id = :route_id AND t.direction_id = :direction
 GROUP BY t.trip_id
 ORDER by  MIN(st.departure_time),MAX(st.departure_time)"; // sans les trams
